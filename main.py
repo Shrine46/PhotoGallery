@@ -32,9 +32,9 @@ class Display(Screen, Widget):
                 green = (225 - pixels[x, y][1])
                 blue = (225 - pixels[x, y][2])
                 pixels[x, y] = (red, green, blue)
-        os.remove("temp.png")
-        img.save("temp.png", flush=True)
-        self.display_image("temp.png")
+        img.save("inv.png")
+        self.display_image("inv.png")
+        #self.ids.image_name.text = self.ids.main_image.source
     def black_and_white(self):
         image = self.ids.main_image.source
         img = Image.open(image)
@@ -44,9 +44,9 @@ class Display(Screen, Widget):
                 r, g, b = pixels[x, y]
                 average = (r + g + b) // 3
                 pixels[x, y] = (average, average, average)
-        os.remove("temp.png")
-        img.save("temp.png", flush=True)
-        self.display_image("temp.png")
+        img.save("bw.png")
+        self.display_image("bw.png")
+        #self.ids.image_name.text = self.ids.main_image.source
 
 
     def edge_detection(self):
@@ -63,9 +63,9 @@ class Display(Screen, Widget):
                         pixels[x - 1, y] = (0, 0, 0)
                     else:
                         pixels[x - 1, y] = (255, 255, 255)
-        os.remove("temp.png")
-        img.save("temp.png", flush=True)
-        self.display_image("temp.png")
+        img.save("edge.png", flush=True)
+        self.display_image("edge.png")
+        #self.ids.image_name.text = self.ids.main_image.source
     def sepia(self):
         image = self.ids.main_image.source
         img = Image.open(image)
@@ -76,9 +76,9 @@ class Display(Screen, Widget):
                 green = int((pixels[x, y][0] * .349) + (pixels[x, y][1] * .686) + (pixels[x, y][2] * .168))
                 blue = int((pixels[x, y][0] * .272) + (pixels[x, y][1] * .534) + (pixels[x, y][2] * .131))
                 pixels[x, y] = (red, green, blue)
-        os.remove("temp.png")
-        img.save("temp.png", flush=True)
-        self.display_image("temp.png")
+        img.save("sepi.png", flush=True)
+        self.display_image("sepi.png")
+        #self.ids.image_name.text = self.ids.main_image.source
     def pointillism(self):
         image = self.ids.main_image.source
         image = Image.open(image)
@@ -92,9 +92,9 @@ class Display(Screen, Widget):
             draw = ImageDraw.Draw(canvas)
             draw.ellipse(ellipsebox, fill=(pixels[x, y][0], pixels[x, y][1], pixels[x, y][2]))
             del draw
-        os.remove("temp.png")
-        image.save("temp.png", flush=True)
-        self.display_image("temp.png")
+        image.save("point.png", flush=True)
+        self.display_image("point.png")
+        #self.ids.image_name.text = self.ids.main_image.source
 
     # def pixelate(self, image, x, y, box_size=20, width=1, height=1):
     #     img = Image.open(image)
