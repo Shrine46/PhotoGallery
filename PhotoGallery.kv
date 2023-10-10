@@ -1,0 +1,44 @@
+Display
+
+<Display>
+    BoxLayout:
+        orientation: "vertical"
+        Image:
+            pos_hint: {"center_x":.5}
+            id:main_image
+            source:
+    BoxLayout:
+        orientation: "horizontal"
+        TextInput:
+            id: image_name
+            text_hint: "Input .png name"
+            size_hint: .5,.2
+        Button:
+            id: load
+            text: "Load Image"
+            size_hint: .5,.2
+            on_release: root.display_image(image_name.text)
+        Button:
+            text: "Black & White"
+            size_hint: .5,.2
+            on_release: root.black_and_white()
+        Button:
+            text: "Inverse"
+            size_hint: .5,.2
+            on_release: root.inverse()
+        Button:
+            text: "Edge Detection"
+            size_hint: .5,.2
+            on_release: root.edge_detection()
+        Button:
+            text: "pointillism"
+            size_hint: .5,.2
+            on_release: root.pointillism()
+        Button:
+            text: "Sepia"
+            size_hint: .5,.2
+            on_release: root.sepia()
+        Button:
+            text: "Pixelate"
+            size_hint: .5,.2
+            on_release: print("WIP")
