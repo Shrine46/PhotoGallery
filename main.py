@@ -67,6 +67,7 @@ class Display(Screen, Widget):
         self.display_image("edge.png")
         #self.ids.image_name.text = self.ids.main_image.source
     def sepia(self):
+        print()
         image = self.ids.main_image.source
         img = Image.open(image)
         pixels = img.load()
